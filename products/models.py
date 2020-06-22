@@ -14,3 +14,10 @@ class Offer(models.Model):
     discount = models.FloatField()
 
 
+class Cart(models.Model):
+    price = models.FloatField()
+    productName = models.CharField(max_length=100)
+    userName = models.CharField(max_length=50)
+    userEmail = models.EmailField()
+    userAddress = models.CharField(max_length=255)
+
