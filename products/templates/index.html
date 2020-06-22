@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Products</h1>
-<ul>
-    {% for product in products %}
-    <li>{{ product.name }} (${{ product.price }})</li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+{% for product in products %}
+<div class="col-md-4">
+    <div class="card mb-2" style="height: 400px">
+        <img src="{{ product.image_url }}" class="card-img-top" alt="..." style="object-fit: cover; max-width: 340px; height: 200px">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">Stock: {{ product.stock }}</p>
+            <p class="card-text">Price: ${{ product.price }}</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
